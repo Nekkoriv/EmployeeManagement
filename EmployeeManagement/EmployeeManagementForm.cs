@@ -50,6 +50,7 @@ namespace EmployeeManagement
             {
                 MessageBox.Show($"{ex.Message}", "Exception occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 _censusProcessor.censusFilePath = string.Empty;
+                filePathTextbox.Text = _censusProcessor.censusFilePath;
             }
         }
 
