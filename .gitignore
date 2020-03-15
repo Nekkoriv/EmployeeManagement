@@ -339,3 +339,4 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 *.ide-shm
+EmployeeManagement/.vs/EmployeeManagement/v16/.suo
