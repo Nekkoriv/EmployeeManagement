@@ -51,10 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataModels\Employee.cs" />
-    <Compile Include="EmployeeCensusProcessor\EmployeeCensusProcessor.cs" />
-    <Compile Include="EmployeeCensusProcessor\GenerateFileService.cs" />
+    <Compile Include="FileManagers\GenerateFileService.cs" />
+    <Compile Include="FileManagers\CensusLoadService.cs" />
     <Compile Include="FileManagers\DataReportManagerService.cs" />
     <Compile Include="FileManagers\JsonManagerService.cs" />
+    <Compile Include="EmployeeCensusProcessor.cs" />
     <Compile Include="EmployeeManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
