@@ -28,10 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.titleLabel = new System.Windows.Forms.Label();
             this.generateButton = new System.Windows.Forms.Button();
-            this.loadButton = new System.Windows.Forms.Button();
+            this.processButton = new System.Windows.Forms.Button();
             this.reportOnlyCheckBox = new System.Windows.Forms.CheckBox();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.uploadButton = new System.Windows.Forms.Button();
+            this.filePathTextbox = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -55,16 +61,16 @@
             this.generateButton.UseVisualStyleBackColor = true;
             this.generateButton.Click += new System.EventHandler(this.generateButton_Click);
             // 
-            // loadButton
+            // processButton
             // 
-            this.loadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loadButton.Location = new System.Drawing.Point(483, 376);
-            this.loadButton.Name = "loadButton";
-            this.loadButton.Size = new System.Drawing.Size(140, 62);
-            this.loadButton.TabIndex = 2;
-            this.loadButton.Text = "Load Census";
-            this.loadButton.UseVisualStyleBackColor = true;
-            this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
+            this.processButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.processButton.Location = new System.Drawing.Point(483, 376);
+            this.processButton.Name = "processButton";
+            this.processButton.Size = new System.Drawing.Size(140, 62);
+            this.processButton.TabIndex = 2;
+            this.processButton.Text = "Process Census";
+            this.processButton.UseVisualStyleBackColor = true;
+            this.processButton.Click += new System.EventHandler(this.processButton_Click);
             // 
             // reportOnlyCheckBox
             // 
@@ -76,18 +82,52 @@
             this.reportOnlyCheckBox.TabIndex = 3;
             this.reportOnlyCheckBox.Text = "Report Only";
             this.reportOnlyCheckBox.UseVisualStyleBackColor = true;
+            this.reportOnlyCheckBox.CheckedChanged += new System.EventHandler(this.reportOnlyCheckBox_CheckedChanged);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
+            this.openFileDialog.InitialDirectory = "D:\\temp";
+            this.openFileDialog.Title = "Dog";
+            // 
+            // uploadButton
+            // 
+            this.uploadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uploadButton.Location = new System.Drawing.Point(316, 116);
+            this.uploadButton.Name = "uploadButton";
+            this.uploadButton.Size = new System.Drawing.Size(140, 56);
+            this.uploadButton.TabIndex = 4;
+            this.uploadButton.Text = "Upload Census";
+            this.uploadButton.UseVisualStyleBackColor = true;
+            this.uploadButton.Click += new System.EventHandler(this.uploadButton_Click);
+            // 
+            // filePathTextbox
+            // 
+            this.filePathTextbox.Enabled = false;
+            this.filePathTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filePathTextbox.Location = new System.Drawing.Point(204, 191);
+            this.filePathTextbox.Name = "filePathTextbox";
+            this.filePathTextbox.Size = new System.Drawing.Size(360, 23);
+            this.filePathTextbox.TabIndex = 5;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // EmployeeManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.filePathTextbox);
+            this.Controls.Add(this.uploadButton);
             this.Controls.Add(this.reportOnlyCheckBox);
-            this.Controls.Add(this.loadButton);
+            this.Controls.Add(this.processButton);
             this.Controls.Add(this.generateButton);
             this.Controls.Add(this.titleLabel);
             this.Name = "EmployeeManagementForm";
             this.Text = "Employee Mangement";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,8 +137,12 @@
 
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Button generateButton;
-        private System.Windows.Forms.Button loadButton;
+        private System.Windows.Forms.Button processButton;
         private System.Windows.Forms.CheckBox reportOnlyCheckBox;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Button uploadButton;
+        private System.Windows.Forms.TextBox filePathTextbox;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 

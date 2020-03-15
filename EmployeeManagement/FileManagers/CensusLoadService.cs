@@ -1,12 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace EmployeeManagement.FileManagers
 {
-    class CensusLoadService
+    public class CensusLoadService
     {
+        public bool isFileFormatCorrect(string censusFilePath)
+        {
+            FileInfo fi = new FileInfo(censusFilePath);
+            if (fi.Extension != ".csv")
+            {
+                throw new Exception($"{censusFilePath} is not a CSV file.");
+            }
+            return true;
+        }
     }
 }
