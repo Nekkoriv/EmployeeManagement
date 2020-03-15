@@ -4,14 +4,18 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace EmployeeManagement.JsonManager
+namespace EmployeeManagement.FileManagers
 {
     // This class is more or less meant to mimic saving and loading Employee data from a database
     class JsonManagerService
     {
         private const string SAVE_FILE_BASENAME = @"EMPLOYEEDATA.json";
-        private const string SAVE_PATH = @"D:\temp\";
-        private string jsonFilePath = SAVE_PATH + SAVE_FILE_BASENAME;
+        private string jsonFilePath;
+
+        public JsonManagerService(string savePath)
+        {
+            _jsonFilePath = savePath + SAVE_FILE_BASENAME;
+        }
 
         public void Save(ICollection<Employee> employeeList)
         {

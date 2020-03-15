@@ -10,3 +10,6 @@ D:\Repositories\Repos_VS\EmployeeManagement\obj\Debug\EmployeeManagement.pdb
 D:\Repositories\Repos_VS\EmployeeManagement\bin\Debug\Newtonsoft.Json.dll
 D:\Repositories\Repos_VS\EmployeeManagement\bin\Debug\Newtonsoft.Json.xml
 D:\Repositories\Repos_VS\EmployeeManagement\obj\Debug\EmployeeManagement.csproj.CopyComplete
+D:\Repositories\GitHub\EmployeeManagement\EmployeeManagement\obj\Debug\EmployeeManagement.EmployeeManagementForm.resources
+D:\Repositories\GitHub\EmployeeManagement\EmployeeManagement\obj\Debug\EmployeeManagement.Properties.Resources.resources
+D:\Repositories\GitHub\EmployeeManagement\EmployeeManagement\obj\Debug\EmployeeManagement.csproj.GenerateResource.cache

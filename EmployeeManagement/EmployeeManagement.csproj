@@ -62,7 +62,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaticDetails\MockEmployees.cs" />
-    <Compile Include="JsonManager\JsonManagerService.cs" />
     <EmbeddedResource Include="EmployeeManagementForm.resx">
       <DependentUpon>EmployeeManagementForm.cs</DependentUpon>
     </EmbeddedResource>
