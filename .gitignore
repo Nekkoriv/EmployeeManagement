@@ -340,3 +340,6 @@ ASALocalRun/
 healthchecksdb
 *.ide-shm
 EmployeeManagement/.vs/EmployeeManagement/v16/.suo
+*.ide
+*.ide-shm
+*.ide-wal
