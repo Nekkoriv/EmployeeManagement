@@ -53,6 +53,7 @@
     <Compile Include="DataModels\Employee.cs" />
     <Compile Include="EmployeeCensusProcessor\EmployeeCensusProcessor.cs" />
     <Compile Include="EmployeeCensusProcessor\GenerateFileService.cs" />
+    <Compile Include="FileManagers\CensusLoadService.cs" />
     <Compile Include="FileManagers\DataReportManagerService.cs" />
     <Compile Include="FileManagers\JsonManagerService.cs" />
     <Compile Include="EmployeeManagementForm.cs">

@@ -22,9 +22,6 @@ namespace EmployeeManagement.EmployeeCensusProcessor
                 SaveEmployeeListToJson();
                 LoadEmployeeListToJson();
             }
-
-            CreateCSVOfDatabaseState();
-            Debugger.Break();
         }
 
         private void GetMockData()
@@ -51,7 +48,7 @@ namespace EmployeeManagement.EmployeeCensusProcessor
             return false;
         }
 
-        private void CreateCSVOfDatabaseState()
+        public void CreateCSVOfDatabaseState()
         {
             var dataReportManager = new DataReportManagerService();
             dataReportManager.CreateDataReport(savePath, employeeList);
