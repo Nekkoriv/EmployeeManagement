@@ -7,10 +7,10 @@ using System.IO;
 namespace EmployeeManagement.FileManagers
 {
     // This class is more or less meant to mimic saving and loading Employee data from a database
-    class JsonManagerService
+    public class JsonManagerService
     {
         private const string SAVE_FILE_BASENAME = @"EMPLOYEEDATA.json";
-        private string jsonFilePath;
+        private string _jsonFilePath;
 
         public JsonManagerService(string savePath)
         {
@@ -20,7 +20,7 @@ namespace EmployeeManagement.FileManagers
         public void Save(ICollection<Employee> employeeList)
         {
             PrepEntriesForInsertAndUpdate(employeeList);
-            File.WriteAllText(jsonFilePath, JsonConvert.SerializeObject(employeeList));
+            File.WriteAllText(_jsonFilePath, JsonConvert.SerializeObject(employeeList));
         }
 
         private void PrepEntriesForInsertAndUpdate(ICollection<Employee> employeeList)
@@ -39,9 +39,9 @@ namespace EmployeeManagement.FileManagers
         {
             var employeeList = new List<Employee>();
 
-            if (File.Exists(jsonFilePath))
+            if (File.Exists(_jsonFilePath))
             {    
-                using (var sr = new StreamReader(jsonFilePath))
+                using (var sr = new StreamReader(_jsonFilePath))
                 {
                     var jsonString = sr.ReadToEnd();
                     var deserializedEmployeeList = JsonConvert.DeserializeObject<List<Employee>>(jsonString);

@@ -1,5 +1,4 @@
 using EmployeeManagement.DataModels;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,10 +6,10 @@ using System.IO;
 namespace EmployeeManagement.FileManagers
 {
     // This class manages the creation of the DataReport
-    class DataReportManagerService
+    public class DataReportManagerService
     {
         // Create a CSV file that represents the data from the database file in a tabular format
-        private void CreateDataReport(string savePath)
+        public void CreateDataReport(string savePath, ICollection<Employee> employeeList)
         {
             var saveFileName = "EmployeeDataReport" + DateTime.Now.ToString("yyyyMMddHHmm") + ".csv";
             var report = new List<string>();

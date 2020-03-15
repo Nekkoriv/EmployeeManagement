@@ -3,14 +3,13 @@ using EmployeeManagement.StaticDetails;
 using EmployeeManagement.FileManagers;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System;
 using System.Linq;
 
 namespace EmployeeManagement.EmployeeCensusProcessor
 {
     class GenerateFileService
     {
+        private const string savePath = @"D:\temp\";
         private ICollection<Employee> employeeList = new List<Employee>();
 
         public GenerateFileService()
@@ -35,7 +34,7 @@ namespace EmployeeManagement.EmployeeCensusProcessor
 
         private void SaveEmployeeListToJson()
         {
-            var jsonManager = new JsonManagerService();
+            var jsonManager = new JsonManagerService(savePath);
 
             jsonManager.Save(employeeList);
         }
@@ -44,7 +43,7 @@ namespace EmployeeManagement.EmployeeCensusProcessor
         // LoadEmployeeListToJson should return true if the list is populated and false if it is not.
         private bool LoadEmployeeListToJson()
         {
-            var jsonManager = new JsonManagerService();
+            var jsonManager = new JsonManagerService(savePath);
             employeeList = jsonManager.Load();
 
             if (employeeList.Any())
@@ -52,52 +51,10 @@ namespace EmployeeManagement.EmployeeCensusProcessor
             return false;
         }
 
-        // Create a CSV file that represents the data from the database file in a tabular format
         private void CreateCSVOfDatabaseState()
         {
-            var saveFileName = "EmployeeDataReport" + DateTime.Now.ToString("yyyyMMddHHmm") + ".csv";
-            var savePath = @"D:\temp\";
-            var report = new List<string>();
-
-            // Create report header
-            report.Add(
-                "Id," +
-                "First Name," +
-                "Last Name," +
-                "Address," +
-                "Email," +
-                "Date of Birth," +
-                "Job Title," +
-                "Employment Status," +
-                "Salary," +
-                "Hire Date," +
-                "Termination Date," +
-                "Entity Created Date," +
-                "Entity Modified Date");
-
-            // Create a report row for each employee
-            foreach (var employee in employeeList)
-            {
-                // Since termDate is a nullable DateTime, we want to return the value only if it exists so that the application doesn't crash, otherwise we can return an empty string
-                var termDate = employee.TermDate.HasValue ? employee.TermDate.Value.ToShortDateString() : string.Empty;
-
-                report.Add(
-                    $"{employee.Id}," +
-                    $"{employee.FirstName}," +
-                    $"{employee.LastName}," +
-                    $"{employee.Address}," +
-                    $"{employee.Email}," +
-                    $"{employee.DateOfBirth.ToShortDateString()}," +
-                    $"{employee.JobTitle}," +
-                    $"{employee.EmploymentStatus.ToString()}," +
-                    $"{employee.Salary}," +
-                    $"{employee.HireDate.ToShortDateString()}," +
-                    $"{termDate}," +
-                    $"{employee.CreatedDate}," +
-                    $"{employee.ModifiedDate}");
-            }
-
-            File.WriteAllLines(savePath + saveFileName, report);
+            var dataReportManager = new DataReportManagerService();
+            dataReportManager.CreateDataReport(savePath, employeeList);
         }
     }
 }
